@@ -3,6 +3,7 @@ const articlesController = require('./../controllers/articles')
 
 module.exports = (app) => {
     app.get('/', articlesController.showAllArticles);
+    app.get('/:filter', articlesController.showAllArticles);
 
     app.get('/article/create', articlesController.articlesGet);
     app.post('/article/create', articlesController.articlesPost)

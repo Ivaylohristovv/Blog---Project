@@ -31,12 +31,25 @@ module.exports = {
         })
     },
     showAllArticles: (req, res) => {
-        console.log('req', req)
-        Articles.find({}, {}, (err, data) => {
-            res.render('home/index', {
-                'articles': data
+        let filter;
+        console.log(req.params)
+        if (req.params.filter) {
+            filter = req.params.filter;
+            Articles.find({
+                category: filter
+            }, {}, (err, data) => {
+                res.render('home/index', {
+                    'articles': data
+                })
             })
-        })
+        } else {
+            Articles.find({}, {}, (err, data) => {
+                res.render('home/index', {
+                    'articles': data
+                })
+            })
+        }
+
     },
     details: (req, res) => {
         let id = req.params.id;
