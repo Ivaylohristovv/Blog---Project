@@ -1,1 +1,7 @@
-home
+<div class="">
+  {{#each posts}}
+  {{title}}
+  {{content}}
+  {{formatTime createdAt "MM-DD-YYYY"}}
+  {{/each}}
+</div>
