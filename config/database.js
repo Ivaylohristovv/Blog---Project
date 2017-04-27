@@ -15,4 +15,5 @@ module.exports = (config) => {
     });
     require('./../models/Users');
     require('./../models/Articles');
+    require('./../models/Comments');
 };
