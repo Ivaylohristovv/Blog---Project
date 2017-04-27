@@ -23,10 +23,12 @@ module.exports = {
             content: registerArgs.content,
             createdAt: new Date(),
             createdBy: req.user.email,
-            category: registerArgs.category
+            category: registerArgs.category,
+            views: 1
         }
 
         Articles.create(articleObject).then(article => {
+            console.log(article)
             res.redirect('/')
         })
     },
@@ -52,7 +54,22 @@ module.exports = {
     },
     details: (req, res) => {
         let id = req.params.id;
-
+        console.log(id)
+        Articles.findOneAndUpdate({
+            _id: id
+        }, {
+            $inc: {
+                views: 1
+            }
+        }, {
+            upsert: true
+        }, function(err, data) {
+            if (err) {
+                console.log('err', err)
+            } else {
+                console.log('data', data)
+            }
+        })
         Articles.findById(id).populate('author').then(article => {
             res.render('articles/details', article)
         })
