@@ -28,8 +28,6 @@ module.exports = {
     },
     showPosts: (req, res) => {
         Posts.find({}, {}, (err, data) => {
-            console.log(err)
-            console.log(data)
             res.render('home/index', {
                 'posts': data
             })
