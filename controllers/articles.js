@@ -76,11 +76,8 @@ module.exports = {
             res.render('articles/details', data)
         })
     },
-    articlesDeleteGet: (req, res) => {
-        console.log(req.body)
-    },
     articlesDeletePost: (req, res) => {
-
+        console.log(req.body)
     }
 
 };

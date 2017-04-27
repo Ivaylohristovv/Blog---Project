@@ -11,7 +11,6 @@ module.exports = (app) => {
     app.get('/article/edit/:id', articlesController.articlesEditGet)
     app.post('/article/edit/:id', articlesController.articlesEditPost)
 
-    app.get('/article/delete/:id', aritclesController.articlesDeleteGet)
     app.post('/article/delete/:id', articlesController.articlesDeletePost)
 
     app.get('/article/details/:id', articlesController.details);
