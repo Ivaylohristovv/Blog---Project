@@ -29,9 +29,11 @@
                   {{#if user}}
                   <ul class="nav navbar-nav navbar-right">
                       <li><a >Welcome({{user.email}})</a></li>
+                      {{#if (isEqual 'admin@admin.com' user.email)}}
                       <li>
                         <a href="/article/create">Create Post</a>
                       </li>
+                      {{/if }}
                       <li><a href="/users/logout">Logout</a></li>
                   </ul>
                   {{/if}}

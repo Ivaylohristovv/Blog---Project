@@ -54,4 +54,43 @@
           </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-5 col-md-offset-3">
+      <h1>Comments</h1>
+    </div>
+    {{#each comments}}
+        <div class="col-sm-5 col-md-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+            <strong>{{email}}</strong> <span class="text-muted">{{formatTime createdAt "MM-DD-YYYY"}}</span>
+            </div>
+            <div class="panel-body">
+            {{content}}
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+    {{/each}}
+  </div>
+{{#if user}}
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div id="comment_form">
+
+      <form class="" method="post" action="/comments/post/{{id}}">
+        <div>
+            <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email">
+        </div>
+
+        <div>
+            <textarea name="content" id="inputContent"  placeholder="Comment" rows="8" cols="80"></textarea>
+
+        </div>
+        <div>
+          <button type="submit">Add Comment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{/if}}
 </div>

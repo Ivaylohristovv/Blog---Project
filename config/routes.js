@@ -1,6 +1,6 @@
 const usersController = require('./../controllers/users')
 const articlesController = require('./../controllers/articles')
-
+const commentsController = require('./../controllers/comments')
 module.exports = (app) => {
     app.get('/', articlesController.showAllArticles);
     app.get('/:filter', articlesController.showAllArticles);
@@ -14,6 +14,8 @@ module.exports = (app) => {
     app.post('/article/delete/:id', articlesController.articlesDeletePost)
 
     app.get('/article/details/:id', articlesController.details);
+
+    app.post('/comments/post/:id', commentsController.commentsPost)
 
     app.get('/users/register', usersController.registerGet);
     app.post('/users/register', usersController.registerPost);

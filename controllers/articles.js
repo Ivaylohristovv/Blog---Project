@@ -28,7 +28,7 @@ module.exports = {
         }
 
         Articles.create(articleObject).then(article => {
-            console.log(article)
+
             res.redirect('/')
         })
     },
@@ -54,7 +54,7 @@ module.exports = {
     },
     details: (req, res) => {
         let id = req.params.id;
-        console.log(id)
+
         Articles.findOneAndUpdate({
             _id: id
         }, {
@@ -65,9 +65,9 @@ module.exports = {
             upsert: true
         }, function(err, data) {
             if (err) {
-                console.log('err', err)
+
             } else {
-                console.log('data', data)
+
             }
         })
         Articles.findById(id).populate('author').then(article => {
@@ -94,7 +94,7 @@ module.exports = {
         })
     },
     articlesDeletePost: (req, res) => {
-        console.log(req.body)
+
     }
 
 };

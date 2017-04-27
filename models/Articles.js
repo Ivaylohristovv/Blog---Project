@@ -26,9 +26,20 @@ let articlesSchema = mongoose.Schema({
     dislikes: {
         type: Number
     },
-    comments: {
-        type: String
-    },
+    comments: [{
+        email: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: true
+        },
+        createdAt: {
+            type: Date,
+            required: true
+        }
+    }],
     category: {
         type: String,
         required: true
