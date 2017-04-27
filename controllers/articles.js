@@ -32,7 +32,6 @@ module.exports = {
     },
     showAllArticles: (req, res) => {
         let filter;
-        console.log(req.params)
         if (req.params.filter) {
             filter = req.params.filter;
             Articles.find({
@@ -57,5 +56,31 @@ module.exports = {
         Articles.findById(id).populate('author').then(article => {
             res.render('articles/details', article)
         })
+    },
+
+    articlesEditGet: (req, res) => {
+        let id = req.params.id;
+
+        Articles.findById(id).populate('author').then(article => {
+            res.render('articles/edit', article)
+        })
+
+    },
+    articlesEditPost: (req, res) => {
+        let body = req.body;
+        Articles.findOneAndUpdate({
+            id: body.id
+        }, body, {
+            new: true
+        }, (err, data) => {
+            res.render('articles/details', data)
+        })
+    },
+    articlesDeleteGet: (req, res) => {
+        console.log(req.body)
+    },
+    articlesDeletePost: (req, res) => {
+
     }
+
 };

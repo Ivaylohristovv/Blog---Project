@@ -24,6 +24,12 @@ module.exports = (app, config) => {
         return mmnt.format(format);
     });
 
+    //
+
+    hbs.registerHelper('isEqual', function(expectedValue, value) {
+        return value === expectedValue;
+    });
+
     // We will use cookies.
     app.use(cookieParser());
 

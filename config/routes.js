@@ -8,6 +8,12 @@ module.exports = (app) => {
     app.get('/article/create', articlesController.articlesGet);
     app.post('/article/create', articlesController.articlesPost)
 
+    app.get('/article/edit/:id', articlesController.articlesEditGet)
+    app.post('/article/edit/:id', articlesController.articlesEditPost)
+
+    app.get('/article/delete/:id', aritclesController.articlesDeleteGet)
+    app.post('/article/delete/:id', articlesController.articlesDeletePost)
+
     app.get('/article/details/:id', articlesController.details);
 
     app.get('/users/register', usersController.registerGet);
