@@ -92,9 +92,22 @@ module.exports = {
         }, (err, data) => {
             res.render('articles/details', data)
         })
+    },articlesDeleteGet: (req, res) =>    {
+        let id = req.params.id;
+
+        Articles.findById(id).populate('author').then(article => {
+            res.render('articles/delete', article)
+        });
+
     },
     articlesDeletePost: (req, res) => {
+        let id = req.params.id;
 
-    }
+        Articles.findOneAndRemove({_id: id}).then(article => {
+            let author = article.author;
 
+            res.redirect('/');
+
+        });
+    },
 };
