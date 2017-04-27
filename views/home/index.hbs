@@ -1,7 +1,27 @@
-<div class="">
-  {{#each posts}}
-  {{title}}
-  {{content}}
-   {{formatTime createdAt "MM-DD-YYYY"}} 
-  {{/each}}
+<div class="container">
+  <div class="row">
+      {{#each articles}}
+    <div class="col-sm-4 col-md-4">
+            <div class="post">
+                <div class="post-img-content">
+                    <img src="http://placehold.it/460x250/e67e22/ffffff&amp;text=HTML5" class="img-responsive">
+                    <span class="post-title"><b>{{title}}</b><br>
+                        <b>CSS3 Blur</b></span>
+                </div>
+                <div class="content">
+                    <div class="author">
+                        By <b>{{createdBy}}</b> |
+                        <time datetime="2014-01-20">{{formatTime createdAt "MM-DD-YYYY"}}</time>
+                    </div>
+                    <div>
+                        {{content}}
+                    </div>
+                    <div>
+                        <a href="/article/details/{{this.id}}" class="btn btn-warning btn-sm">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+  </div>
 </div>

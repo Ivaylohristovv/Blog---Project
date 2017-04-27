@@ -66,7 +66,7 @@ module.exports = {
 
             req.logIn(user, (err) => {
                 if (err) {
-                    console.log(err);
+
                     res.redirect('/users/login', {
                         error: err.message
                     });

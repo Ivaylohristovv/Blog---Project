@@ -20,8 +20,6 @@ module.exports = (app, config) => {
 
     // Format helper for the date.
     hbs.registerHelper('formatTime', function(date, format) {
-        console.log(date)
-        console.log(format)
         var mmnt = moment(date);
         return mmnt.format(format);
     });

@@ -1,11 +1,13 @@
 const usersController = require('./../controllers/users')
-const postsController = require('./../controllers/posts')
+const articlesController = require('./../controllers/articles')
 
 module.exports = (app) => {
-    app.get('/', postsController.showPosts);
+    app.get('/', articlesController.showAllArticles);
 
-    app.get('/create-post', postsController.postsGet);
-    app.post('/create-post', postsController.postsCreate)
+    app.get('/article/create', articlesController.articlesGet);
+    app.post('/article/create', articlesController.articlesPost)
+
+    app.get('/article/details/:id', articlesController.details);
 
     app.get('/users/register', usersController.registerGet);
     app.post('/users/register', usersController.registerPost);

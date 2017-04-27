@@ -3,6 +3,7 @@
 <head>
     <title>SoftUni Blog</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/index.css' />
     <script src="/javascripts/jquery-1.10.2.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
 </head>
@@ -18,25 +19,29 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                {{#if user}}
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a >Welcome({{user.email}})</a></li>
-                            <li>
-                              <a href="/create-post">Create Post</a>
-                            </li>
-                            <li><a href="/users/logout">Logout</a></li>
-                        </ul>
-                    </div>
-                {{/if}}
-                {{#unless user}}
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/users/register">Register</a></li>
-                            <li><a href="/users/login">Login</a></li>
-                        </ul>
-                    </div>
-                {{/unless}}
+                <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-left filters">
+                    <li><a href="/">Health</a></li>
+                    <li><a href="/">Sport</a></li>
+                    <li><a href="/">Education</a></li>
+                  </ul>
+                  {{#if user}}
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a >Welcome({{user.email}})</a></li>
+                      <li>
+                        <a href="/article/create">Create Post</a>
+                      </li>
+                      <li><a href="/users/logout">Logout</a></li>
+                  </ul>
+                  {{/if}}
+                    {{#unless user}}
+                      <ul class="nav navbar-nav navbar-right">
+                          <li><a href="/users/register">Register</a></li>
+                          <li><a href="/users/login">Login</a></li>
+                      </ul>
+                  {{/unless}}
+                </div>
+
             </div>
         </div>
     </header>
