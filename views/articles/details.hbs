@@ -24,10 +24,8 @@
               <div class="panel-footer">
                   <span class="label label-default">{{category}}</span>
                   <div class="buttons pull-right">
-                  {{#if (isEqual 'admin@admin.com' user.email)}}
                     <a href="/article/edit/{{id}}"><button type="button" class="btn btn-xs btn-warning ">Edit</button></a>
                     <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#myModal">Delete</button>
-                    {{/if}}
                     <div id="myModal" class="modal fade" role="dialog">
                       <div class="modal-dialog">
 
